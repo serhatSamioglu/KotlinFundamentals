@@ -1,7 +1,7 @@
 package com.example.kotlinfundamentals.classes
 
 /*
-Some classes are desinged to hold data. With data classes,
+Some classes are designed to hold data. With data classes,
 we can considerably reduce the boilerplate code.
 Compiler automatically creates the equals, hashCode, toString, and copy functions.
 */

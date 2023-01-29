@@ -17,7 +17,7 @@ fun main() {
 open class Animal {
 
     open fun isOpenClass(isOpen: Boolean = true) {
-        println(isOpen)
+        println("isOpenClass: $isOpen")
     }
 
     fun printMessage() = println("message")
