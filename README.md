@@ -1,6 +1,8 @@
 # Table of Contents  
 [Types of Kotlin classes](#TypesofKotlinclasses)
+
 [Generics: in out type](#GenericsInOutType)
+
 ...    
 <a name="TypesofKotlinclasses"/>
 ## Types of Kotlin classes
@@ -177,7 +179,8 @@ fun getArea2(e: Shape2) =
     }
 ```
 <a name="GenericsInOutType"/>
-## Types of Kotlin classes
+
+## Generics: in out type
 ```ruby
 /*
 When you declare a generic type with an in modifier,
