@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">KotlinFundamentals</string>
+    <string name="coroutines">Coroutines</string>
 </resources>
