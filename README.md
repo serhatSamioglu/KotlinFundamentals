@@ -287,13 +287,13 @@ There are two ways to refer to an object:
 Also there are two different return type:
 1. context: Return the object itself, which is scoped.
 2. lambda: Return the last statement in the scope block.
-So you should consider carefully what return value you want based on what you want to do next in your code.
+So you should consider carefully what return value you want based on what you want to do next in your code.*/
 
 Scopes
 1. Let
 - The most common usage is null checks with safe call operator(?.)
 - ‘let’ operation is performed on a object and return last statement in ‘let’ block. If there is no statement,
-it will return Unit by default like calling a function that has no return value.*/
+it will return Unit by default like calling a function that has no return value.
 
 fun main() {
     val animal = Animal("Max")
@@ -311,20 +311,18 @@ fun main() {
 
 data class Animal(val name: String?)
 
-/*
 2. Apply
 
 - The most common use case for ‘apply’ is for object configuration.
-- Apply returns the context object itself.*/
+- Apply returns the context object itself.
 val intent = Intent().apply {
         putExtra("uri", "https://www.linkedin.com/in/serhat-%C5%9Famio%C4%9Flu-2945b2173/")
     }
     // startActivity(intent)
     
-/*
 3. Run
 
-Equivalent to ‘apply’, but it returns the last line.*/
+Equivalent to ‘apply’, but it returns the last line.
 fun main() {
     val person = Person(24)
 
@@ -335,10 +333,10 @@ fun main() {
 }
 
 data class Person(var age: Int)
-/*
+
 4. With
 
-According to the Kotlin docs “with can be read as (with this object, do the following.)”.*/
+According to the Kotlin docs “with can be read as (with this object, do the following.)”.
 fun main() {
     val human = Human("Serhat", 25)
 
@@ -349,10 +347,10 @@ fun main() {
 }
 
 data class Human(var name: String, var age: Int)
-/*
+
 5. Also
 
-It is used when we have to perform additional operations on already initialized object members.*/
+It is used when we have to perform additional operations on already initialized object members.
 val names = mutableListOf("Serhat")
 
     names.also { println("names list elements before adding new name: $it") }
