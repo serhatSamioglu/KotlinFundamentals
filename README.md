@@ -7,6 +7,8 @@
 
 [Kotlin Scope Functions](#KotlinScopeFunctions)
 
+[State/Shared Flow and Channel](#State/SharedFlowAndChannel)
+
 ...    
 <a name="TypesofKotlinclasses"/>
 ## Types of Kotlin classes
@@ -355,4 +357,99 @@ val names = mutableListOf("Serhat")
 
     names.also { println("names list elements before adding new name: $it") }
         .add("Sami")
+```
+
+<a name="State/SharedFlowAndChannel"/>
+
+## State/Shared Flow and Channel
+```ruby
+/*
+StateFlow is a state-holder observable flow. 
+With the help of this feature, you can reach the state with .value property.
+*/
+
+// Define StateFlow
+private val _stateFlow = MutableStateFlow("Default StateFlow Value")
+val stateFlow = _stateFlow.asStateFlow()
+
+// Set value
+fun triggerStateFlow() {
+    viewModelScope.launch {
+        for (i in 1..7) {
+             delay(1000L)
+             _stateFlow.value = i.toString()
+        }    
+     }
+ }
+
+// Collect value
+lifecycleScope.launch {
+    repeatOnLifecycle(Lifecycle.State.STARTED) {
+        viewModel.stateFlow.collect {
+            binding.textViewStateFlow.text = it
+        }        
+    }
+}
+
+// Reach StateFlow value
+viewModel.stateFlow.value
+
+/*
+SharedFlow does not keep the state so the best use case for this flow is one-time events.
+SharedFlow emits value even if there is no collector because It is a hot flow.
+Also, emitted values could collect from all its collectors.
+*/
+
+// Define SharedFlow
+private val _sharedFlow = MutableSharedFlow<String>()
+val sharedFlow = _sharedFlow.asSharedFlow()
+
+// Emit value
+fun triggerSharedFlow() {
+        viewModelScope.launch {
+            for (i in 1..7) {
+                delay(1000L)
+                _sharedFlow.emit(i.toString())
+            }
+        }
+    }
+
+// Collect value
+lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.sharedFlow.collect {
+                    binding.textViewSharedFlow.text = it
+                }
+            }
+        }
+        
+/*
+Channel does not keep the state like SharedFlow.
+Again, the best use case for this flow is one-time events.
+But Channel is cold flow so it does not send value if there is no collector.
+Also, the channel could not collectable from different collectors.
+*/
+
+// Define Channel
+private val _channelFlow = Channel<String>()
+val channelFlow = _channelFlow.receiveAsFlow()
+
+// Send value
+fun triggerChannel() {
+        viewModelScope.launch {
+            for (i in 1..7) {
+                delay(1000L)
+                _channelFlow.send(i.toString())
+            }
+        }
+    }
+
+// Collect value
+lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.channelFlow.collect {
+                    binding.textViewChannel.text = it
+                }
+            }
+        }
 ```

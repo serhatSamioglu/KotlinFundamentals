@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">KotlinFundamentals</string>
     <string name="coroutines">Coroutines</string>
+    <string name="flow">Flow</string>
+    <string name="state_flow">State Flow</string>
+    <string name="shared_flow">Shared Flow</string>
+    <string name="channel">Channel</string>
 </resources>

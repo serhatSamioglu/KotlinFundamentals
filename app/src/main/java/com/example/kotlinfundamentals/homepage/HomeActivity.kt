@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.kotlinfundamentals.coroutines.CoroutinesActivity
 import com.example.kotlinfundamentals.databinding.ActivityHomeBinding
+import com.example.kotlinfundamentals.flow.FlowActivity
 
 class HomeActivity : AppCompatActivity() {
 
@@ -21,6 +22,10 @@ class HomeActivity : AppCompatActivity() {
     private fun handleClickListeners() {
         binding.buttonCoroutines.setOnClickListener {
             startActivity(Intent(this, CoroutinesActivity::class.java))
+        }
+
+        binding.buttonFlow.setOnClickListener {
+            startActivity(Intent(this, FlowActivity::class.java))
         }
     }
 }

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinFundamentals">
         <activity
+            android:name=".flow.FlowActivity"
+            android:exported="true" />
+        <activity
             android:name=".coroutines.CoroutinesActivity"
             android:exported="true" />
         <activity

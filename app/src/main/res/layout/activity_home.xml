@@ -16,5 +16,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:text="@string/coroutines"/>
+
+        <Button
+            android:id="@+id/buttonFlow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonCoroutines"
+            android:text="@string/flow"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
