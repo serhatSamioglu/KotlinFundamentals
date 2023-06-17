@@ -362,6 +362,8 @@ val names = mutableListOf("Serhat")
 <a name="State/SharedFlowAndChannel"/>
 
 ## State/Shared Flow and Channel
+
+### StateFlow
 ```ruby
 /*
 StateFlow is a state-holder observable flow. 
@@ -393,7 +395,9 @@ lifecycleScope.launch {
 
 // Reach StateFlow value
 viewModel.stateFlow.value
-
+```
+## SharedFlow
+```ruby
 /*
 SharedFlow does not keep the state so the best use case for this flow is one-time events.
 SharedFlow emits value even if there is no collector because It is a hot flow.
@@ -422,7 +426,9 @@ lifecycleScope.launch {
                 }
             }
         }
-        
+```
+## Channel
+```ruby 
 /*
 Channel does not keep the state like SharedFlow.
 Again, the best use case for this flow is one-time events.
